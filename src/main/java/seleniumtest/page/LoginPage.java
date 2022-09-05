@@ -6,11 +6,10 @@ import org.slf4j.ext.XLogger;
 import org.slf4j.ext.XLoggerFactory;
 import seleniumtest.utils.DriverUtils;
 import seleniumtest.utils.Page;
-import seleniumtest.utils.WebDriverFactory;
 
 public class LoginPage extends Page {
 
-    private static final XLogger LOGGER = XLoggerFactory.getXLogger(WebDriverFactory.class.getName());
+    private static final XLogger LOGGER = XLoggerFactory.getXLogger(LoginPage.class.getName());
 
 
     @FindBy(id = "username")
@@ -32,7 +31,7 @@ public class LoginPage extends Page {
 
     public void clickButton(String buttonName) {
         if (buttonName.equals("Sign in")) {
-            DriverUtils.clickButton(signInButton);
+            DriverUtils.clickElement(signInButton);
         } else LOGGER.error("Unknown Button: {}", buttonName);
     }
 }
